@@ -1,0 +1,21 @@
+class Solution:
+    def sortArray(self, nums: List[int]) -> List[int]:
+
+        maxNum = max(nums)
+        minNum = min(nums)
+
+        numDict = collections.Counter(nums)
+        index = 0
+
+        for num in range(minNum, maxNum+1):
+            if num in numDict:
+                while numDict[num] > 0:
+                    nums[index] = num
+                    index += 1
+                    numDict[num] -= 1
+            else:
+                continue
+
+        return nums                
+
+        
